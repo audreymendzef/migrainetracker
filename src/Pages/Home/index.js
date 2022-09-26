@@ -1,7 +1,7 @@
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import Button from "@mui/material/Button";
 import MainHeader from "Headers/MainHeader.js";
-import "./Home.css";
+import "./styles.css";
 
 function Home() {
   return (

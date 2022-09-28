@@ -34,7 +34,7 @@ function Survey() {
       <p>Where did the pain originate in your head?</p>
       <input type="text" {...register("painLoc")} />
       <p>How severe was the level of pain?</p>
-      <input type="range" {...register("severity", { min: "0", max: "10" })} />
+      <input type="range" {...register("severity")} min={0} max={10} />
       <p>What symptoms aside from pain did you experience?</p>
       <label>
         <input type="checkbox" {...register("symptoms")} />

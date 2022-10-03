@@ -29,21 +29,23 @@ function Home() {
           >
             Logs
           </Button>
-          <Button
-            variant="contained"
-            sx={{
-              background: "#D3D3D3",
-              color: "#282c34",
-              marginLeft: "15px",
-              fontWeight: "bold",
-              fontSize: "0.85em",
-              fontFamily: "Courier New",
-              width: "125px",
-              "&:hover": { backgroundColor: "#778899" },
-            }}
-          >
-            + Track
-          </Button>
+          <a href="/survey">
+            <Button
+              variant="contained"
+              sx={{
+                background: "#D3D3D3",
+                color: "#282c34",
+                marginLeft: "15px",
+                fontWeight: "bold",
+                fontSize: "0.85em",
+                fontFamily: "Courier New",
+                width: "125px",
+                "&:hover": { backgroundColor: "#778899" },
+              }}
+            >
+              + Track
+            </Button>
+          </a>
         </div>
       </header>
     </div>

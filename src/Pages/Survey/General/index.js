@@ -132,7 +132,16 @@ function General({ goForward }) {
           )}
           rules={{ required: "Location is required." }}
         />
-        <Button variant="contained" className="next">
+        <Button
+          className="button"
+          variant="contained"
+          sx={{
+            marginTop: 3,
+            backgroundColor: "gray",
+            width: 125,
+            "&:hover": { backgroundColor: "darkgray" },
+          }}
+        >
           Next
         </Button>
       </div>

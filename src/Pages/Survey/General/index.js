@@ -74,36 +74,32 @@ function General({ goForward }) {
           render={({
             field: { onChange, value, onBlur },
             fieldState: { error },
-          }) => {
-            console.log(error);
-            return (
-              <FormControl sx={{ m: 1, width: 150 }} error={error}>
-                <InputLabel id="demo-simple-select-label">Time*</InputLabel>
-                <Select
-                  label="Time"
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  value={value}
-                  error={!!error}
-                  size="small"
-                >
-                  <MenuItem value="" disabled>
-                    Select One
-                  </MenuItem>
-                  <MenuItem value="early morning">early morning</MenuItem>
-                  <MenuItem value="late morning">late morning</MenuItem>
-                  <MenuItem value="around noon">around noon</MenuItem>
-                  <MenuItem value="early afternoon">early afternoon</MenuItem>
-                  <MenuItem value="mid afternoon">mid afternoon</MenuItem>
-                  <MenuItem value="late afternoon">late afternoon</MenuItem>
-                  <MenuItem value="early evening">early evening</MenuItem>
-                  <MenuItem value="late evening">late evening</MenuItem>
-                  <MenuItem value="other">other</MenuItem>
-                </Select>
-                <FormHelperText>{error ? error.message : null}</FormHelperText>
-              </FormControl>
-            );
-          }}
+          }) => (
+            <FormControl sx={{ m: 1, width: 150 }} error={error} size="small">
+              <InputLabel id="demo-simple-select-label">Time*</InputLabel>
+              <Select
+                label="Time"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                error={!!error}
+              >
+                <MenuItem value="" disabled>
+                  Select One
+                </MenuItem>
+                <MenuItem value="early morning">early morning</MenuItem>
+                <MenuItem value="late morning">late morning</MenuItem>
+                <MenuItem value="around noon">around noon</MenuItem>
+                <MenuItem value="early afternoon">early afternoon</MenuItem>
+                <MenuItem value="mid afternoon">mid afternoon</MenuItem>
+                <MenuItem value="late afternoon">late afternoon</MenuItem>
+                <MenuItem value="early evening">early evening</MenuItem>
+                <MenuItem value="late evening">late evening</MenuItem>
+                <MenuItem value="other">other</MenuItem>
+              </Select>
+              <FormHelperText>{error ? error.message : null}</FormHelperText>
+            </FormControl>
+          )}
           rules={{ required: "Time of day is required." }}
         />
 
@@ -137,9 +133,9 @@ function General({ goForward }) {
           variant="contained"
           sx={{
             marginTop: 3,
-            backgroundColor: "gray",
+            backgroundColor: "primary",
             width: 125,
-            "&:hover": { backgroundColor: "darkgray" },
+            "&:hover": { backgroundColor: "secondary" },
           }}
         >
           Next

@@ -7,6 +7,7 @@ import {
   FormControl,
   InputLabel,
   FormHelperText,
+  Link,
 } from "@mui/material";
 import React from "react";
 import "./styles.css";
@@ -22,6 +23,10 @@ function General({ goForward }) {
 
   const onSubmit = (data) => {
     console.log(data);
+    console.log(errors);
+    if (Object.keys(errors).length === 0) {
+      window.location.assign("/Symptoms");
+    }
   };
 
   return (
@@ -129,6 +134,7 @@ function General({ goForward }) {
           rules={{ required: "Location is required." }}
         />
         <Button
+          type="submit"
           className="button"
           variant="contained"
           sx={{

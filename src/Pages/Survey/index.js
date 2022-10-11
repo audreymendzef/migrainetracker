@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import General from "./General";
 import Symptoms from "./Symptoms";
-import LengthAndMeds from "./LengthAndMeds";
+import LengthandMeds from "./LengthAndMeds";
 import Experience from "./Experience";
 import FoodWater from "./FoodWater";
 import Misc from "./Misc";

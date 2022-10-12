@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import Symptoms from "Pages/Survey/Symptoms";
 import LengthAndMeds from "Pages/Survey/LengthAndMeds";
 import Experience from "Pages/Survey/Experience";
+import FoodWater from "Pages/Survey/FoodWater";
 
 const WithNav = () => (
   <>
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route element={<WithNav />}>
           <Route path="Experience" element={<Experience />} />
+        </Route>
+        <Route element={<WithNav />}>
+          <Route path="FoodWater" element={<FoodWater />} />
         </Route>
       </Routes>
     </BrowserRouter>

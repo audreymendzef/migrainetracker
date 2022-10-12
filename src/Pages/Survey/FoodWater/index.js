@@ -42,7 +42,7 @@ function FoodWater({ goBack, goForward }) {
               required
               size="small"
               type="number"
-              label="Day of: Water"
+              label="Water (oz)"
               variant="outlined"
               value={value}
               onChange={onChange}
@@ -103,7 +103,7 @@ function FoodWater({ goBack, goForward }) {
               required
               size="small"
               type="number"
-              label="Water"
+              label="Water (oz)"
               variant="outlined"
               value={value}
               onChange={onChange}
@@ -149,124 +149,126 @@ function FoodWater({ goBack, goForward }) {
         />
 
         <p>What did you eat on the day of the migraine?</p>
-        <div className="food">
-          <p>Breakfast:</p>
-          <Controller
-            name="Breakfast"
-            control={control}
-            defaultValue=""
-            render={({
-              field: { onChange, value, onBlur },
-              fieldState: { error },
-            }) => (
-              <TextField
-                sx={{ m: 1, width: 150 }}
-                required
-                size="small"
-                type="text"
-                label="Breakfast"
-                variant="outlined"
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                error={!!error}
-                helperText={error ? error.message : null}
-              />
-            )}
-            rules={{
-              required: "Breafast info is required.",
-            }}
-          />
-        </div>
+        <div className="meals">
+          <div className="food">
+            <p>Breakfast:</p>
+            <Controller
+              name="Breakfast"
+              control={control}
+              defaultValue=""
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  sx={{ m: 1, width: 150 }}
+                  required
+                  size="small"
+                  type="text"
+                  label=""
+                  variant="outlined"
+                  value={value}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={!!error}
+                  helperText={error ? error.message : null}
+                />
+              )}
+              rules={{
+                required: "Breafast info is required.",
+              }}
+            />
+          </div>
 
-        <div className="food">
-          <p>Lunch:</p>
-          <Controller
-            name="Lunch"
-            control={control}
-            defaultValue=""
-            render={({
-              field: { onChange, value, onBlur },
-              fieldState: { error },
-            }) => (
-              <TextField
-                sx={{ m: 1, width: 150 }}
-                required
-                size="small"
-                type="text"
-                label="Lunch"
-                variant="outlined"
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                error={!!error}
-                helperText={error ? error.message : null}
-              />
-            )}
-            rules={{
-              required: "Lunch info is required.",
-            }}
-          />
-        </div>
+          <div className="food">
+            <p>Lunch:</p>
+            <Controller
+              name="Lunch"
+              control={control}
+              defaultValue=""
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  sx={{ m: 1, width: 150 }}
+                  required
+                  size="small"
+                  type="text"
+                  label=""
+                  variant="outlined"
+                  value={value}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={!!error}
+                  helperText={error ? error.message : null}
+                />
+              )}
+              rules={{
+                required: "Lunch info is required.",
+              }}
+            />
+          </div>
 
-        <div className="food">
-          <p>Dinner:</p>
-          <Controller
-            name="Dinner"
-            control={control}
-            defaultValue=""
-            render={({
-              field: { onChange, value, onBlur },
-              fieldState: { error },
-            }) => (
-              <TextField
-                sx={{ m: 1, width: 150 }}
-                required
-                size="small"
-                type="text"
-                label="Dinner"
-                variant="outlined"
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                error={!!error}
-                helperText={error ? error.message : null}
-              />
-            )}
-            rules={{
-              required: "Dinner info is required.",
-            }}
-          />
-        </div>
+          <div className="food">
+            <p>Dinner:</p>
+            <Controller
+              name="Dinner"
+              control={control}
+              defaultValue=""
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  sx={{ m: 1, width: 150 }}
+                  required
+                  size="small"
+                  type="text"
+                  label=""
+                  variant="outlined"
+                  value={value}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={!!error}
+                  helperText={error ? error.message : null}
+                />
+              )}
+              rules={{
+                required: "Dinner info is required.",
+              }}
+            />
+          </div>
 
-        <div className="food">
-          <p>Snacks/Dessert:</p>
-          <Controller
-            name="SnacksDessert"
-            control={control}
-            defaultValue=""
-            render={({
-              field: { onChange, value, onBlur },
-              fieldState: { error },
-            }) => (
-              <TextField
-                sx={{ m: 1, width: 150 }}
-                required
-                size="small"
-                type="text"
-                label="Other Food"
-                variant="outlined"
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                error={!!error}
-                helperText={error ? error.message : null}
-              />
-            )}
-            rules={{
-              required: "Snack/Dessert info is required.",
-            }}
-          />
+          <div className="food">
+            <p>Snacks/Dessert:</p>
+            <Controller
+              name="SnacksDessert"
+              control={control}
+              defaultValue=""
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  sx={{ m: 1, width: 150 }}
+                  required
+                  size="small"
+                  type="text"
+                  label=""
+                  variant="outlined"
+                  value={value}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  error={!!error}
+                  helperText={error ? error.message : null}
+                />
+              )}
+              rules={{
+                required: "Snack/Dessert info is required.",
+              }}
+            />
+          </div>
         </div>
         <div className="buttons">
           <Button
@@ -276,6 +278,7 @@ function FoodWater({ goBack, goForward }) {
             sx={{
               marginTop: 2,
               marginRight: 1,
+              marginBottom: 2,
               backgroundColor: "primary",
               width: 125,
               "&:hover": { backgroundColor: "secondary" },
@@ -290,6 +293,7 @@ function FoodWater({ goBack, goForward }) {
             sx={{
               marginTop: 2,
               marginLeft: 1,
+              marginBottom: 2,
               backgroundColor: "primary",
               width: 125,
               "&:hover": { backgroundColor: "secondary" },

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Symptoms from "Pages/Survey/Symptoms";
 import LengthAndMeds from "Pages/Survey/LengthAndMeds";
+import FoodWater from "Pages/Survey/FoodWater";
 
 const WithNav = () => (
   <>
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route element={<WithNav />}>
           <Route path="LengthAndMeds" element={<LengthAndMeds />} />
+        </Route>
+        <Route element={<WithNav />}>
+          <Route path="FoodWater" element={<FoodWater />} />
         </Route>
       </Routes>
     </BrowserRouter>

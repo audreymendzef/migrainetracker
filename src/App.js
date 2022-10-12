@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Symptoms from "Pages/Survey/Symptoms";
 import LengthAndMeds from "Pages/Survey/LengthAndMeds";
+import Experience from "Pages/Survey/Experience";
 
 const WithNav = () => (
   <>
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route element={<WithNav />}>
           <Route path="LengthAndMeds" element={<LengthAndMeds />} />
+        </Route>
+        <Route element={<WithNav />}>
+          <Route path="Experience" element={<Experience />} />
         </Route>
       </Routes>
     </BrowserRouter>

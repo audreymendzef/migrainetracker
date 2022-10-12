@@ -9,6 +9,15 @@ import Misc from "./Misc";
 
 import "./styles.css";
 
+// const steps = [
+//   { id: "General" },
+//   { id: "Symptoms" },
+//   { id: "LengthAndMeds" },
+//   { id: "Experience" },
+//   { id: "FoodWater" },
+//   { id: "submit"}
+// ];
+
 const Survey = () => {
   const [step, setStep] = useState(0);
 

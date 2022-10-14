@@ -33,6 +33,10 @@ function Experience({ goBack, goForward }) {
     }
   };
 
+  const onClick = () => {
+    window.location.assign("/LengthAndMeds");
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="ExperienceInfo">
@@ -209,7 +213,7 @@ function Experience({ goBack, goForward }) {
         )}
         <div className="buttons">
           <Button
-            type="submit"
+            onClick={onClick}
             className="button"
             variant="contained"
             sx={{

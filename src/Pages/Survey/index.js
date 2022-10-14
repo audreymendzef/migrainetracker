@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import General from "./General";
 import Symptoms from "./Symptoms";
-import LengthandMeds from "./LengthAndMeds";
+import LengthAndMeds from "./LengthAndMeds";
 import Experience from "./Experience";
 import FoodWater from "./FoodWater";
 import Misc from "./Misc";
@@ -27,14 +27,16 @@ const Survey = () => {
   switch (step) {
     case 0:
       return <General goBack={goBack} goForward={goForward} />;
-    // case "address":
-    //   return <Address {...props} />;
-    // case "contact":
-    //   return <Contact {...props} />;
-    // case "review":
-    //   return <Review {...props} />;
-    // case "submit":
-    //   return <Submit {...props} />;
+    case 1:
+      return <Symptoms goBack={goBack} goForward={goForward} />;
+    case 2:
+      return <LengthAndMeds goBack={goBack} goForward={goForward} />;
+    case 3:
+      return <Experience goBack={goBack} goForward={goForward} />;
+    case 4:
+      return <FoodWater goBack={goBack} goForward={goForward} />;
+    case 5:
+      return <Misc goBack={goBack} goForward={goForward} />;
     default:
       return null;
   }

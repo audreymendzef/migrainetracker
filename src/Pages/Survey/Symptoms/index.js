@@ -6,7 +6,6 @@ import {
   FormControlLabel,
   Checkbox,
   Button,
-  Link,
 } from "@mui/material";
 import React from "react";
 import "./styles.css";
@@ -31,6 +30,10 @@ function Symptoms({ goBack, goForward }) {
     if (Object.keys(errors).length === 0) {
       window.location.assign("/LengthAndMeds");
     }
+  };
+
+  const onClick = () => {
+    window.location.assign("/General");
   };
 
   return (
@@ -184,7 +187,7 @@ function Symptoms({ goBack, goForward }) {
 
         <div className="buttons">
           <Button
-            type="submit"
+            onClick={onClick}
             className="button"
             variant="contained"
             sx={{

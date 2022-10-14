@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import "./styles.css";
 
-function Misc({ goBack, goForward }) {
+function Misc() {
   const {
     register,
     control,

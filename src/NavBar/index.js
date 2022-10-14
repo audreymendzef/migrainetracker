@@ -13,7 +13,7 @@ import Link from "@mui/material/Link";
 const pages = [
   { display: "Home", link: "/" },
   { display: "Logs", link: "/logs" },
-  { display: "+Track", link: "/survey" },
+  { display: "+Track", link: "/General" },
 ];
 
 const NavBar = () => {

@@ -7,13 +7,12 @@ import {
   MenuItem,
   FormHelperText,
   Button,
-  Link,
 } from "@mui/material";
 import React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-function LengthAndMeds({ goBack, goForward }) {
+function LengthAndMeds() {
   const {
     control,
     handleSubmit,

@@ -29,6 +29,10 @@ function LengthAndMeds({ goBack, goForward }) {
     }
   };
 
+  const onClick = () => {
+    window.location.assign("/Symptoms");
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="lengthAndMedInfo">
@@ -151,7 +155,7 @@ function LengthAndMeds({ goBack, goForward }) {
         />
         <div className="buttons">
           <Button
-            type="submit"
+            onClick={onClick}
             className="button"
             variant="contained"
             sx={{

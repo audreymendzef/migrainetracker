@@ -31,6 +31,10 @@ function Misc({ goBack, goForward }) {
     // }
   };
 
+  const onClick = () => {
+    window.location.assign("/FoodWater");
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="miscInfo">
@@ -155,7 +159,7 @@ function Misc({ goBack, goForward }) {
         />
         <div className="buttons">
           <Button
-            type="submit"
+            onClick={onClick}
             className="button"
             variant="contained"
             sx={{

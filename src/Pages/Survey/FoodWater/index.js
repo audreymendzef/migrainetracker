@@ -24,6 +24,10 @@ function FoodWater({ goBack, goForward }) {
     }
   };
 
+  const onClick = () => {
+    window.location.assign("/Experience");
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="foodWaterInfo">
@@ -272,7 +276,7 @@ function FoodWater({ goBack, goForward }) {
         </div>
         <div className="buttons">
           <Button
-            type="submit"
+            onClick={onClick}
             className="button"
             variant="contained"
             sx={{

@@ -11,7 +11,7 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-function Symptoms({ goBack, goForward }) {
+function Symptoms() {
   const {
     control,
     handleSubmit,

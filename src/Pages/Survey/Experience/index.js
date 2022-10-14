@@ -1,22 +1,19 @@
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField,
-  Slider,
   FormGroup,
   FormControlLabel,
   Checkbox,
   Button,
-  Link,
 } from "@mui/material";
 import React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-function Experience({ goBack, goForward }) {
+function Experience() {
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 

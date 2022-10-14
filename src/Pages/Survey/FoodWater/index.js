@@ -3,7 +3,7 @@ import { TextField, Button } from "@mui/material";
 import React, { useState } from "react";
 import "./styles.css";
 
-function FoodWater({ goBack, goForward }) {
+function FoodWater() {
   const {
     control,
     handleSubmit,

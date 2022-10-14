@@ -1,5 +1,4 @@
 import Home from "Pages/Home";
-import Survey from "Pages/Survey";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import General from "Pages/Survey/General";
@@ -23,9 +22,6 @@ function App() {
         <Route index element={<Home />} />
         <Route element={<WithNav />}>
           <Route path="general" element={<General />} />
-        </Route>
-        <Route element={<WithNav />}>
-          <Route path="survey" element={<Survey />} />
         </Route>
         <Route element={<WithNav />}>
           <Route path="symptoms" element={<Symptoms />} />

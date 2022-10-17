@@ -29,7 +29,7 @@ function Home() {
           >
             Logs
           </Button>
-          <a href="/survey">
+          <a href="/General">
             <Button
               variant="contained"
               sx={{

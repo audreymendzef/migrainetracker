@@ -10,7 +10,7 @@ p {
     align-items: center;
 }
 
-.date {
+.dateOfMigraine {
     width: 150px;
     box-sizing: border-box;
     height: 40px;
@@ -26,6 +26,6 @@ p {
     cursor: pointer;
 }
 
-.date:hover {
+.dateOfMigraine:hover {
     border-color: black;
 }

@@ -1,4 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -11,20 +12,22 @@ import {
 import React from "react";
 import "./styles.css";
 
-function General() {
+function General({ store, setStore, location }) {
   const {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", defaultValues: store });
+  let navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
     if (Object.keys(errors).length === 0) {
-      window.location.assign("/Symptoms");
+      setStore({
+        ...store,
+        ...data,
+      });
+      navigate("/Symptoms");
     }
   };
 
@@ -64,15 +67,15 @@ function General() {
 
         <p>What was the date of the Migraine?</p>
         <input
-          className="date"
+          className="dateOfMigraine"
           type="date"
-          {...register("date", { required: true, valueAsDate: true })}
+          {...register("dateOfMigraine", { required: true, valueAsDate: true })}
         />
         {errors?.date?.type === "required" && "This field is required."}
 
         <p>What time of day was the Migraine?</p>
         <Controller
-          name="Time"
+          name="timeOfMigraine"
           control={control}
           defaultValue=""
           render={({
@@ -109,7 +112,7 @@ function General() {
 
         <p>Where were you when you had the Migraine?</p>
         <Controller
-          name="Location"
+          name="locationOfMigraine"
           control={control}
           defaultValue=""
           render={({

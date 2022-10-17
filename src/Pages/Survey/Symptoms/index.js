@@ -1,4 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
+import { Link } from "react-router-dom";
 import {
   TextField,
   Slider,
@@ -186,20 +187,21 @@ function Symptoms() {
         )}
 
         <div className="buttons">
-          <Button
-            onClick={onClick}
-            className="button"
-            variant="contained"
-            sx={{
-              marginTop: 3,
-              marginRight: 1,
-              backgroundColor: "primary",
-              width: 125,
-              "&:hover": { backgroundColor: "secondary" },
-            }}
-          >
-            Previous
-          </Button>
+          <Link to="/General">
+            <Button
+              className="button"
+              variant="contained"
+              sx={{
+                marginTop: 3,
+                marginRight: 1,
+                backgroundColor: "primary",
+                width: 125,
+                "&:hover": { backgroundColor: "secondary" },
+              }}
+            >
+              Previous
+            </Button>
+          </Link>
 
           <Button
             type="submit"

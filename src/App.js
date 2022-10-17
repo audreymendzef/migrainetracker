@@ -1,5 +1,6 @@
 import Home from "Pages/Home";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { React, useState } from "react";
 import NavBar from "./NavBar";
 import General from "Pages/Survey/General";
 import Symptoms from "Pages/Survey/Symptoms";
@@ -16,12 +17,23 @@ const WithNav = () => (
 );
 
 function App() {
+  const [store, setStore] = useState({
+    Age: "",
+    dateOfMigraine: "",
+    timeOfMigraine: "",
+    locationOfMigraine: "",
+  });
+  console.log(store);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
         <Route element={<WithNav />}>
-          <Route path="general" element={<General />} />
+          <Route
+            path="general"
+            element={<General setStore={setStore} store={store} />}
+          />
         </Route>
         <Route element={<WithNav />}>
           <Route path="symptoms" element={<Symptoms />} />

@@ -9,13 +9,15 @@ import {
 import React from "react";
 import "./styles.css";
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-function Experience() {
+function Experience({ store, setStore }) {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", defaultValues: store });
+  let navigate = useNavigate();
 
   const [checked, setChecked] = useState(false);
   const handleChange = (event) => {
@@ -23,15 +25,13 @@ function Experience() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
+    setStore({
+      ...store,
+      ...data,
+    });
     if (Object.keys(errors).length === 0) {
-      window.location.assign("/FoodWater");
+      navigate("/FoodWater");
     }
-  };
-
-  const onClick = () => {
-    window.location.assign("/LengthAndMeds");
   };
 
   return (
@@ -42,7 +42,7 @@ function Experience() {
           After the Migraine, did you experience any of the following?
         </p>
         <Controller
-          name="experience"
+          name="postMigraineExperience"
           control={control}
           defaultValue=""
           render={({
@@ -90,7 +90,7 @@ function Experience() {
           <>
             <p>If you selected "other", please describe your experience:</p>
             <Controller
-              name="otherExperience"
+              name="otherPostMigraineExperience"
               control={control}
               defaultValue=""
               render={({
@@ -119,7 +119,7 @@ function Experience() {
           Leading up to the Migraine, did you experience any of the following?
         </p>
         <Controller
-          name="experience"
+          name="beforeMigraineExperience"
           control={control}
           defaultValue=""
           render={({
@@ -183,7 +183,7 @@ function Experience() {
           <>
             <p>If you selected "other", please describe your pre-symptoms:</p>
             <Controller
-              name="otherExperience"
+              name="otherBeforeMigraineExperience"
               control={control}
               defaultValue=""
               render={({
@@ -209,20 +209,21 @@ function Experience() {
           </>
         )}
         <div className="buttons">
-          <Button
-            onClick={onClick}
-            className="button"
-            variant="contained"
-            sx={{
-              marginTop: 5,
-              marginRight: 1,
-              backgroundColor: "primary",
-              width: 125,
-              "&:hover": { backgroundColor: "secondary" },
-            }}
-          >
-            Previous
-          </Button>
+          <Link to="/LengthAndMeds">
+            <Button
+              className="button"
+              variant="contained"
+              sx={{
+                marginTop: 5,
+                marginRight: 1,
+                backgroundColor: "primary",
+                width: 125,
+                "&:hover": { backgroundColor: "secondary" },
+              }}
+            >
+              Previous
+            </Button>
+          </Link>
           <Button
             type="submit"
             className="button"

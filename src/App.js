@@ -30,6 +30,21 @@ function App() {
     medsForMigraine: "",
     didMedsHelp: "",
     recoveryTime: "",
+    postMigraineexperience: "",
+    otherpostMigraineExperience: "",
+    beforeMigraineExperience: "",
+    otherBeforeMigraineExperience: "",
+    dayOfMigraineWater: "",
+    dayOfMigraineAltDrinks: "",
+    preMigraineWater: "",
+    preMigraineAltDrinks: "",
+    breakfast: "",
+    lunch: "",
+    dinner: "",
+    snacksAndDessert: "",
+    dateOfNextPeriod: "",
+    extenuatingCircumstances: "",
+    otherCircumstances: "",
   });
   console.log(store);
 
@@ -56,13 +71,22 @@ function App() {
           />
         </Route>
         <Route element={<WithNav />}>
-          <Route path="Experience" element={<Experience />} />
+          <Route
+            path="Experience"
+            element={<Experience setStore={setStore} store={store} />}
+          />
         </Route>
         <Route element={<WithNav />}>
-          <Route path="FoodWater" element={<FoodWater />} />
+          <Route
+            path="FoodWater"
+            element={<FoodWater setStore={setStore} store={store} />}
+          />
         </Route>
         <Route element={<WithNav />}>
-          <Route path="Misc" element={<Misc />} />
+          <Route
+            path="Misc"
+            element={<Misc setStore={setStore} store={store} />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

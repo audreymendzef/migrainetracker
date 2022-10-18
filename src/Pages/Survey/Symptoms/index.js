@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   TextField,
   Slider,
@@ -12,13 +12,13 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 
-function Symptoms() {
+function Symptoms({ store, setStore }) {
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", defaultValues: store });
+  let navigate = useNavigate();
 
   const [checked, setChecked] = useState(false);
   const handleChange = (event) => {
@@ -26,15 +26,13 @@ function Symptoms() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
     if (Object.keys(errors).length === 0) {
-      window.location.assign("/LengthAndMeds");
+      setStore({
+        ...store,
+        ...data,
+      });
+      navigate("/LengthAndMeds");
     }
-  };
-
-  const onClick = () => {
-    window.location.assign("/General");
   };
 
   return (
@@ -68,7 +66,7 @@ function Symptoms() {
         />
         <p>How severe was the level of pain?</p>
         <Controller
-          name="severity"
+          name="painSeverity"
           control={control}
           defaultValue=""
           render={({

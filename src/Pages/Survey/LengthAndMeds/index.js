@@ -10,26 +10,24 @@ import {
 } from "@mui/material";
 import React from "react";
 import "./styles.css";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-function LengthAndMeds() {
+function LengthAndMeds({ store, setStore }) {
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", defaultValues: store });
+  let navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
     if (Object.keys(errors).length === 0) {
-      window.location.assign("/Experience");
+      setStore({
+        ...store,
+        ...data,
+      });
+      navigate("/Experience");
     }
-  };
-
-  const onClick = () => {
-    window.location.assign("/Symptoms");
   };
 
   return (
@@ -38,7 +36,7 @@ function LengthAndMeds() {
         <h1>Length and Medication</h1>
         <p>How long did the Migraine Last?</p>
         <Controller
-          name="length"
+          name="lengthOfMigraine"
           control={control}
           defaultValue=""
           render={({
@@ -64,7 +62,7 @@ function LengthAndMeds() {
 
         <p>List any medications you took for the Migraine:</p>
         <Controller
-          name="meds"
+          name="medsForMigraine"
           control={control}
           defaultValue=""
           render={({
@@ -90,7 +88,7 @@ function LengthAndMeds() {
 
         <p>Did the medication help the pain level?</p>
         <Controller
-          name="medshelp"
+          name="didMedsHelp"
           control={control}
           defaultValue=""
           render={({
@@ -116,7 +114,7 @@ function LengthAndMeds() {
 
         <p>How long did it take to feel 100% recovered?</p>
         <Controller
-          name="Recovery"
+          name="recoveryTime"
           control={control}
           defaultValue=""
           render={({
@@ -153,20 +151,21 @@ function LengthAndMeds() {
           rules={{ required: "Recovery time is required." }}
         />
         <div className="buttons">
-          <Button
-            onClick={onClick}
-            className="button"
-            variant="contained"
-            sx={{
-              marginTop: 2,
-              marginRight: 1,
-              backgroundColor: "primary",
-              width: 125,
-              "&:hover": { backgroundColor: "secondary" },
-            }}
-          >
-            Previous
-          </Button>
+          <Link to="/Symptoms">
+            <Button
+              className="button"
+              variant="contained"
+              sx={{
+                marginTop: 2,
+                marginRight: 1,
+                backgroundColor: "primary",
+                width: 125,
+                "&:hover": { backgroundColor: "secondary" },
+              }}
+            >
+              Previous
+            </Button>
+          </Link>
           <Button
             type="submit"
             className="button"

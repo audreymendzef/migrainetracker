@@ -22,6 +22,14 @@ function App() {
     dateOfMigraine: "",
     timeOfMigraine: "",
     locationOfMigraine: "",
+    painOrigin: "",
+    painSeverity: "",
+    altSymptoms: "",
+    otherSymptoms: "",
+    lengthOfMigraine: "",
+    medsForMigraine: "",
+    didMedsHelp: "",
+    recoveryTime: "",
   });
   console.log(store);
 
@@ -36,10 +44,16 @@ function App() {
           />
         </Route>
         <Route element={<WithNav />}>
-          <Route path="symptoms" element={<Symptoms />} />
+          <Route
+            path="symptoms"
+            element={<Symptoms setStore={setStore} store={store} />}
+          />
         </Route>
         <Route element={<WithNav />}>
-          <Route path="LengthAndMeds" element={<LengthAndMeds />} />
+          <Route
+            path="LengthAndMeds"
+            element={<LengthAndMeds setStore={setStore} store={store} />}
+          />
         </Route>
         <Route element={<WithNav />}>
           <Route path="Experience" element={<Experience />} />

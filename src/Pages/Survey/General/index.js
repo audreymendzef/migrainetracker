@@ -12,7 +12,7 @@ import {
 import React from "react";
 import "./styles.css";
 
-function General({ store, setStore, location }) {
+function General({ store, setStore }) {
   const {
     register,
     control,

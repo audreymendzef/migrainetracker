@@ -8,15 +8,16 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import "./styles.css";
+import { useNavigate, Link } from "react-router-dom";
 
-function Misc() {
+function Misc({ store, setStore }) {
   const {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", defaultValues: store });
+  let navigate = useNavigate();
 
   const [checked, setChecked] = useState(false);
   const handleChange = (event) => {
@@ -24,15 +25,10 @@ function Misc() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
+    setStore({ ...store, ...data });
     // if (Object.keys(errors).length === 0) {
     //   window.location.assign("/Misc");
     // }
-  };
-
-  const onClick = () => {
-    window.location.assign("/FoodWater");
   };
 
   return (
@@ -41,7 +37,7 @@ function Misc() {
         <h1>Miscellaneous Info</h1>
         <p>If applicable, when is your next period?</p>
         <input
-          className="date"
+          className="dateOfNextPeriod"
           type="date"
           {...register("date", { required: true, valueAsDate: true })}
         />
@@ -49,7 +45,7 @@ function Misc() {
 
         <p>Were there any extenuating circumstances?</p>
         <Controller
-          name="circumstances"
+          name="extenuatingCircumstances"
           control={control}
           defaultValue=""
           render={({
@@ -103,7 +99,7 @@ function Misc() {
           <>
             <p>If you selected "other", please describe your experience:</p>
             <Controller
-              name="otherExperience"
+              name="otherCircumstances"
               control={control}
               defaultValue=""
               render={({
@@ -131,7 +127,7 @@ function Misc() {
 
         <p>Any other remaining information that might be relevant?</p>
         <Controller
-          name="Other Info"
+          name="otherMiscInfo"
           control={control}
           defaultValue=""
           render={({
@@ -158,20 +154,21 @@ function Misc() {
           rules={{ required: "This field is required." }}
         />
         <div className="buttons">
-          <Button
-            onClick={onClick}
-            className="button"
-            variant="contained"
-            sx={{
-              marginTop: 3,
-              marginRight: 1,
-              backgroundColor: "primary",
-              width: 125,
-              "&:hover": { backgroundColor: "secondary" },
-            }}
-          >
-            Previous
-          </Button>
+          <Link to="/FoodWater">
+            <Button
+              className="button"
+              variant="contained"
+              sx={{
+                marginTop: 3,
+                marginRight: 1,
+                backgroundColor: "primary",
+                width: 125,
+                "&:hover": { backgroundColor: "secondary" },
+              }}
+            >
+              Previous
+            </Button>
+          </Link>
           <Button
             type="submit"
             className="button"

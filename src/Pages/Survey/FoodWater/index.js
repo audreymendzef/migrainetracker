@@ -2,25 +2,23 @@ import { useForm, Controller } from "react-hook-form";
 import { TextField, Button } from "@mui/material";
 import React, { useState } from "react";
 import "./styles.css";
+import { useNavigate, Link } from "react-router-dom";
 
-function FoodWater() {
+function FoodWater({ store, setStore }) {
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
-
-  const [checked, setChecked] = useState(false);
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
+  } = useForm({ mode: "onBlur", defaultValues: store });
+  let navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
+    setStore({
+      ...store,
+      ...data,
+    });
     if (Object.keys(errors).length === 0) {
-      window.location.assign("/Misc");
+      navigate("/Misc");
     }
   };
 
@@ -34,7 +32,7 @@ function FoodWater() {
         <h1>Food and Water Information</h1>
         <p>How much water did you drink on the day of the Migraine?</p>
         <Controller
-          name="DayofWater"
+          name="dayOfMigraineWater"
           control={control}
           defaultValue=""
           render={({
@@ -64,7 +62,7 @@ function FoodWater() {
           of the migraine?
         </p>
         <Controller
-          name="Drinks"
+          name="dayOfMigraineAltDrinks"
           control={control}
           defaultValue=""
           render={({
@@ -95,7 +93,7 @@ function FoodWater() {
           migraine?
         </p>
         <Controller
-          name="PreMigraineWater"
+          name="preMigraineWater"
           control={control}
           defaultValue=""
           render={({
@@ -126,7 +124,7 @@ function FoodWater() {
           days leading up to the migraine?
         </p>
         <Controller
-          name="Drinks"
+          name="preMigraineAltDrinks"
           control={control}
           defaultValue=""
           render={({
@@ -157,7 +155,7 @@ function FoodWater() {
           <div className="food">
             <p>Breakfast:</p>
             <Controller
-              name="Breakfast"
+              name="breakfast"
               control={control}
               defaultValue=""
               render={({
@@ -187,7 +185,7 @@ function FoodWater() {
           <div className="food">
             <p>Lunch:</p>
             <Controller
-              name="Lunch"
+              name="lunch"
               control={control}
               defaultValue=""
               render={({
@@ -217,7 +215,7 @@ function FoodWater() {
           <div className="food">
             <p>Dinner:</p>
             <Controller
-              name="Dinner"
+              name="dinner"
               control={control}
               defaultValue=""
               render={({
@@ -247,7 +245,7 @@ function FoodWater() {
           <div className="food">
             <p>Snacks/Dessert:</p>
             <Controller
-              name="SnacksDessert"
+              name="snacksAndDessert"
               control={control}
               defaultValue=""
               render={({
@@ -275,21 +273,22 @@ function FoodWater() {
           </div>
         </div>
         <div className="buttons">
-          <Button
-            onClick={onClick}
-            className="button"
-            variant="contained"
-            sx={{
-              marginTop: 2,
-              marginRight: 1,
-              marginBottom: 2,
-              backgroundColor: "primary",
-              width: 125,
-              "&:hover": { backgroundColor: "secondary" },
-            }}
-          >
-            Previous
-          </Button>
+          <Link to="/Experience">
+            <Button
+              className="button"
+              variant="contained"
+              sx={{
+                marginTop: 2,
+                marginRight: 1,
+                marginBottom: 2,
+                backgroundColor: "primary",
+                width: 125,
+                "&:hover": { backgroundColor: "secondary" },
+              }}
+            >
+              Previous
+            </Button>
+          </Link>
           <Button
             type="submit"
             className="button"

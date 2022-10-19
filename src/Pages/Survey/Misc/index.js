@@ -6,7 +6,6 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
-import React, { useState } from "react";
 import "./styles.css";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -15,14 +14,10 @@ function Misc({ store, setStore }) {
     register,
     control,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({ mode: "onBlur", defaultValues: store });
   let navigate = useNavigate();
-
-  const [checked, setChecked] = useState(false);
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
 
   const onSubmit = (data) => {
     setStore({ ...store, ...data });
@@ -30,6 +25,8 @@ function Misc({ store, setStore }) {
     //   window.location.assign("/Misc");
     // }
   };
+
+  const isOtherCircumstancesBox = watch("otherCircumstancesBox");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -39,63 +36,204 @@ function Misc({ store, setStore }) {
         <input
           className="dateOfNextPeriod"
           type="date"
-          {...register("date", { required: true, valueAsDate: true })}
+          {...register("dateOfNextPeriod", {
+            required: true,
+            valueAsDate: true,
+          })}
         />
         {errors?.date?.type === "required" && "This field is required."}
 
         <p>Were there any extenuating circumstances?</p>
-        <Controller
-          name="extenuatingCircumstances"
-          control={control}
-          defaultValue=""
-          render={({
-            field: { onChange, value, onBlur },
-            fieldState: { error },
-          }) => (
-            <FormGroup
-              required
-              onChange={onChange}
-              value={value}
-              onBlur={onBlur}
-              error={error}
-            >
-              <div className="gridContainer">
-                <div className="col">
-                  <FormControlLabel control={<Checkbox />} label="Stress" />
-                  <FormControlLabel control={<Checkbox />} label="Sickness" />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Excessive Exercise"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Excessive Exertion"
-                  />
-                </div>
-
-                <div className="col">
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Exposure to Flashing Lights"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Changes to Weather/Pressure"
-                  />
-                  <FormControlLabel control={<Checkbox />} label="None" />
+        <div className="gridContainer">
+          <div className="col">
+            <Controller
+              name="stress"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
                   <FormControlLabel
                     control={
-                      <Checkbox checked={checked} onChange={handleChange} />
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Stress"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="sickness"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Sickness"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="excessiveExercise"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Excessive Exercise"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="excessiveExertion"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Excessive Exertion"
+                  />
+                </FormGroup>
+              )}
+            />
+          </div>
+
+          <div className="col">
+            <Controller
+              name="exposureToFlashingLights"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Exposure to Flashing Lights"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="changesToWeatherOrPressure"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Changes to Weather/Pressure"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="noCircumstances"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="None"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="otherCircumstancesBox"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
                     }
                     label="Other"
                   />
-                </div>
-              </div>
-            </FormGroup>
-          )}
-          rules={{ required: "Must select at least one." }}
-        />
-        {checked && (
+                </FormGroup>
+              )}
+            />
+          </div>
+        </div>
+        {isOtherCircumstancesBox && (
           <>
             <p>If you selected "other", please describe your experience:</p>
             <Controller
@@ -139,7 +277,6 @@ function Misc({ store, setStore }) {
               required
               multiline
               rows={2}
-              maxRows={Infinity}
               type="text"
               label="Other Info"
               variant="outlined"
@@ -161,6 +298,7 @@ function Misc({ store, setStore }) {
               sx={{
                 marginTop: 3,
                 marginRight: 1,
+                marginBottom: 2,
                 backgroundColor: "primary",
                 width: 125,
                 "&:hover": { backgroundColor: "secondary" },
@@ -176,6 +314,7 @@ function Misc({ store, setStore }) {
             sx={{
               marginTop: 3,
               marginLeft: 1,
+              marginBottom: 2,
               backgroundColor: "primary",
               width: 125,
               "&:hover": { backgroundColor: "secondary" },

@@ -8,21 +8,16 @@ import {
 } from "@mui/material";
 import React from "react";
 import "./styles.css";
-import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 function Experience({ store, setStore }) {
   const {
     control,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({ mode: "onBlur", defaultValues: store });
   let navigate = useNavigate();
-
-  const [checked, setChecked] = useState(false);
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
 
   const onSubmit = (data) => {
     setStore({
@@ -34,6 +29,9 @@ function Experience({ store, setStore }) {
     }
   };
 
+  const isOtherSymptomsAfterBox = watch("otherSymptomsAfterBox");
+  const isOtherSymptomsBeforeBox = watch("otherSymptomsBeforeBox");
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="ExperienceInfo">
@@ -41,58 +39,201 @@ function Experience({ store, setStore }) {
         <p className="postsympt">
           After the Migraine, did you experience any of the following?
         </p>
-        <Controller
-          name="postMigraineExperience"
-          control={control}
-          defaultValue=""
-          render={({
-            field: { onChange, value, onBlur },
-            fieldState: { error },
-          }) => (
-            <FormGroup
-              required
-              onChange={onChange}
-              value={value}
-              onBlur={onBlur}
-              error={error}
-            >
-              <div className="gridContainer">
-                <div className="col">
-                  <FormControlLabel control={<Checkbox />} label="Confusion" />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Feeling Drained"
-                  />
-                  <FormControlLabel control={<Checkbox />} label="Dizziness" />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Pain when moving head"
-                  />
-                </div>
-
-                <div className="col">
-                  <FormControlLabel control={<Checkbox />} label="Elation" />
-                  <FormControlLabel control={<Checkbox />} label="Sadness" />
-                  <FormControlLabel control={<Checkbox />} label="None" />
+        <div className="gridContainer">
+          <div className="col">
+            <Controller
+              name="confusion"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
                   <FormControlLabel
                     control={
-                      <Checkbox checked={checked} onChange={handleChange} />
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Confusion"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="feelingDrained"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Feeling Drained"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="dizzinessAfter"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Dizziness"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="painWhenMovingHead"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Pain when moving head"
+                  />
+                </FormGroup>
+              )}
+            />
+          </div>
+
+          <div className="col">
+            <Controller
+              name="elation"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Elation"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="sadness"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Sadness"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="noSymptomsAfter"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="None"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="otherSymptomsAfterBox"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
                     }
                     label="Other"
                   />
-                </div>
-              </div>
-            </FormGroup>
-          )}
-          rules={{ required: "Must select at least one." }}
-        />
-        {checked && (
+                </FormGroup>
+              )}
+            />
+          </div>
+        </div>
+        {isOtherSymptomsAfterBox && (
           <>
             <p>If you selected "other", please describe your experience:</p>
             <Controller
-              name="otherPostMigraineExperience"
+              name="otherSymptomsAfter"
               control={control}
-              defaultValue=""
               render={({
                 field: { onChange, value, onBlur },
                 fieldState: { error },
@@ -118,74 +259,227 @@ function Experience({ store, setStore }) {
         <p>
           Leading up to the Migraine, did you experience any of the following?
         </p>
-        <Controller
-          name="beforeMigraineExperience"
-          control={control}
-          defaultValue=""
-          render={({
-            field: { onChange, value, onBlur },
-            fieldState: { error },
-          }) => (
-            <FormGroup
-              required
-              onChange={onChange}
-              value={value}
-              onBlur={onBlur}
-              error={error}
-            >
-              <div className="gridContainer">
-                <div className="col">
-                  <FormControlLabel control={<Checkbox />} label="Poor Sleep" />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Constipation"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Mood Changes"
-                  />
-                </div>
-
-                <div className="col">
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Increased Urination"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Fluid Retention"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Frequent Yawning"
-                  />
-                </div>
-
-                <div className="col">
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Neck Stiffness"
-                  />
-                  <FormControlLabel control={<Checkbox />} label="None" />
+        <div className="gridContainer">
+          <div className="col">
+            <Controller
+              name="poorSleep"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
                   <FormControlLabel
                     control={
-                      <Checkbox checked={checked} onChange={handleChange} />
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Poor Sleep"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="constipation"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Constipation"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="moodChanges"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Mood Changes"
+                  />
+                </FormGroup>
+              )}
+            />
+          </div>
+
+          <div className="col">
+            <Controller
+              name="increasedUrination"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Increased Urination"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="fluidRetention"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Fluid Retention"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="frequentYawning"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Frequent Yawning"
+                  />
+                </FormGroup>
+              )}
+            />
+          </div>
+
+          <div className="col">
+            <Controller
+              name="neckStiffness"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="Neck Stiffness"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="noSymptomsBefore"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
+                    }
+                    label="None"
+                  />
+                </FormGroup>
+              )}
+            />
+
+            <Controller
+              name="otherSymptomsBeforeBox"
+              control={control}
+              render={({
+                field: { onChange, value, onBlur },
+                fieldState: { error },
+              }) => (
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={onChange}
+                        checked={value}
+                        onBlur={onBlur}
+                        error={error}
+                      />
                     }
                     label="Other"
                   />
-                </div>
-              </div>
-            </FormGroup>
-          )}
-          rules={{ required: "Must select at least one." }}
-        />
-        {checked && (
+                </FormGroup>
+              )}
+            />
+          </div>
+        </div>
+
+        {isOtherSymptomsBeforeBox && (
           <>
             <p>If you selected "other", please describe your pre-symptoms:</p>
             <Controller
-              name="otherBeforeMigraineExperience"
+              name="otherSymptomsBefore"
               control={control}
-              defaultValue=""
               render={({
                 field: { onChange, value, onBlur },
                 fieldState: { error },
@@ -216,6 +510,7 @@ function Experience({ store, setStore }) {
               sx={{
                 marginTop: 5,
                 marginRight: 1,
+                marginBottom: 2,
                 backgroundColor: "primary",
                 width: 125,
                 "&:hover": { backgroundColor: "secondary" },
@@ -231,6 +526,7 @@ function Experience({ store, setStore }) {
             sx={{
               marginTop: 5,
               marginLeft: 1,
+              marginBottom: 2,
               backgroundColor: "primary",
               width: 125,
               "&:hover": { backgroundColor: "secondary" },

@@ -331,7 +331,6 @@ function Symptoms({ store, setStore }) {
                       <Checkbox
                         checked={value}
                         onChange={onChange}
-                        value={value}
                         onBlur={onBlur}
                         error={error}
                       />

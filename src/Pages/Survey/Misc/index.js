@@ -38,7 +38,6 @@ function Misc({ store, setStore }) {
           type="date"
           {...register("dateOfNextPeriod", {
             required: true,
-            valueAsDate: true,
           })}
         />
         {errors?.date?.type === "required" && "This field is required."}

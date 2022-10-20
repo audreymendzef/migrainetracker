@@ -1,0 +1,36 @@
+.logPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+}
+
+.gridInfo1 {
+    box-sizing: border-box;
+    text-align: center;
+    border: solid 2px #282c34;
+    padding: 10px;
+    font-size: 18px;
+    font-family: "Roboto";
+}
+
+.gridInfo2 {
+    box-sizing: border-box;
+    text-align: center;
+    border-right: solid 2px #282c34; 
+    border-top: solid 2px #282c34;
+    border-bottom: solid 2px #282c34;
+    padding: 10px;
+    font-size: 18px;
+    font-family: "Roboto";
+}
+
+.header {
+    font-family: "Roboto";
+    color: #282c34;
+}

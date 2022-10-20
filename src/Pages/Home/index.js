@@ -14,21 +14,23 @@ function Home() {
           signs, triggers, and remedies that work best for you.
         </p>
         <div className="main-buttons">
-          <Button
-            variant="contained"
-            sx={{
-              background: "#D3D3D3",
-              color: "#282c34",
-              marginRight: "15px",
-              fontWeight: "800",
-              fontSize: "0.85em",
-              fontFamily: "Courier New",
-              width: "125px",
-              "&:hover": { backgroundColor: "#778899" },
-            }}
-          >
-            Logs
-          </Button>
+          <a href="/Logs">
+            <Button
+              variant="contained"
+              sx={{
+                background: "#D3D3D3",
+                color: "#282c34",
+                marginRight: "15px",
+                fontWeight: "800",
+                fontSize: "0.85em",
+                fontFamily: "Courier New",
+                width: "125px",
+                "&:hover": { backgroundColor: "#778899" },
+              }}
+            >
+              Logs
+            </Button>
+          </a>
           <a href="/General">
             <Button
               variant="contained"

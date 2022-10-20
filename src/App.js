@@ -8,6 +8,7 @@ import LengthAndMeds from "Pages/Survey/LengthAndMeds";
 import Experience from "Pages/Survey/Experience";
 import FoodWater from "Pages/Survey/FoodWater";
 import Misc from "Pages/Survey/Misc";
+import Logs from "Pages/Logs";
 
 const WithNav = () => (
   <>
@@ -54,7 +55,7 @@ function App() {
     moodChanges: false,
     increasedUrination: false,
     fluidRetention: false,
-    frequentyawning: false,
+    frequentYawning: false,
     neckStiffness: false,
     noSymptomsBefore: false,
     otherSymptomsBeforeBox: false,
@@ -85,6 +86,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
+        <Route element={<WithNav />}>
+          <Route path="Logs" element={<Logs />} />
+        </Route>
         <Route element={<WithNav />}>
           <Route
             path="general"

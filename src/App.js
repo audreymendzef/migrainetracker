@@ -19,7 +19,7 @@ const WithNav = () => (
 function App() {
   const [store, setStore] = useState({
     Age: "",
-    dateOfMigraine: "",
+    dateOfMigraine: new Date().toISOString().split("T")[0],
     timeOfMigraine: "",
     locationOfMigraine: "",
     painOrigin: "",
@@ -67,7 +67,7 @@ function App() {
     lunch: "",
     dinner: "",
     snacksAndDessert: "",
-    dateOfNextPeriod: "",
+    dateOfNextPeriod: new Date().toISOString().split("T")[0],
     stress: false,
     sickness: false,
     excessiveExercise: false,

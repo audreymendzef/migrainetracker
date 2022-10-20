@@ -69,7 +69,9 @@ function General({ store, setStore }) {
         <input
           className="dateOfMigraine"
           type="date"
-          {...register("dateOfMigraine", { required: true, valueAsDate: true })}
+          {...register("dateOfMigraine", {
+            required: true,
+          })}
         />
         {errors?.date?.type === "required" && "This field is required."}
 

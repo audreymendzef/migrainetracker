@@ -20,10 +20,21 @@ function Misc({ store, setStore }) {
   let navigate = useNavigate();
 
   const onSubmit = (data) => {
-    setStore({ ...store, ...data });
-    // if (Object.keys(errors).length === 0) {
-    //   window.location.assign("/Misc");
-    // }
+    const logs = localStorage.getItem("logs");
+    if (logs === "null") {
+      localStorage.setItem("logs", JSON.stringify([{ ...store, ...data }]));
+    } else {
+      // [{}]
+      const parseLogs = JSON.parse("logs");
+
+      parseLogs.push({ ...store, ...data });
+      // set the new logs
+      localStorage.setItem("logs", JSON.stringify(parseLogs));
+    }
+
+    if (Object.keys(errors).length === 0) {
+      navigate("/Logs");
+    }
   };
 
   const isOtherCircumstancesBox = watch("otherCircumstancesBox");

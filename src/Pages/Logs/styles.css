@@ -34,3 +34,8 @@
     font-family: "Roboto";
     color: #282c34;
 }
+
+.gridInfo {
+    text-align: center;
+    padding: 8px;
+}

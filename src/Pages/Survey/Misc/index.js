@@ -21,11 +21,16 @@ function Misc({ store, setStore }) {
 
   const onSubmit = (data) => {
     const logs = localStorage.getItem("logs");
-    if (logs === "null") {
-      localStorage.setItem("logs", JSON.stringify([{ ...store, ...data }]));
+
+    if (logs === null) {
+      localStorage.setItem(
+        "logs",
+        JSON.stringify([{ ...store, ...data, id: crypto.randomUUID() }])
+      );
     } else {
       // [{}]
-      const parseLogs = JSON.parse("logs");
+      const parseLogs = JSON.parse(logs);
+      console.log(parseLogs);
 
       parseLogs.push({ ...store, ...data });
       // set the new logs

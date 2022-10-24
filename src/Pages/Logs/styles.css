@@ -4,13 +4,19 @@
     align-items: center;
 }
 
-.gridContainer {
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 10px;
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
 }
 
-.gridInfo1 {
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.dateOfMigraineTitle {
     box-sizing: border-box;
     text-align: center;
     border: solid 2px #282c34;
@@ -19,7 +25,7 @@
     font-family: "Roboto";
 }
 
-.gridInfo2 {
+.detailInfoTitle {
     box-sizing: border-box;
     text-align: center;
     border-right: solid 2px #282c34; 
@@ -33,9 +39,35 @@
 .header {
     font-family: "Roboto";
     color: #282c34;
+    margin: 15px;
 }
 
-.gridInfo {
+.dateAndLink {
     text-align: center;
-    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
+
+ .storeInfo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detailsLink {
+    text-decoration: none;
+    font-family: "Roboto";
+    margin-top: 10px;
+    color: #282c34;
+    font-weight: bold;
+}
+
+.dateFromStore {
+    font-family: "Roboto";
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #282c34;
+} 

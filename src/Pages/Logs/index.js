@@ -9,17 +9,23 @@ function Logs() {
   return (
     <div className="logPage">
       <h1 className="header">Migraine History</h1>
-      <div className="gridContainer">
-        <div className="gridInfo1">Date of Migraine</div>
-        <div className="gridInfo2">Information</div>
-        <div className="gridInfo">
+      <div className="container">
+        <div className="titleContainer">
+          <div className="dateOfMigraineTitle">Date of Migraine</div>
+          <div className="detailInfoTitle">Information</div>
+        </div>
+        <div className="dateAndLink">
           {Array.isArray(parseLogs) &&
             parseLogs.map(({ id, dateOfMigraine }) => (
-              <h4 key={id}>{dateOfMigraine}</h4>
+              <div className="storeInfo">
+                <h4 className="dateFromStore" key={id}>
+                  {dateOfMigraine}
+                </h4>
+                <a className="detailsLink" href="/Details" key={id}>
+                  Details
+                </a>
+              </div>
             ))}
-        </div>
-        <div className="gridInfo">
-          <a href="/Details">Details</a>
         </div>
       </div>
     </div>

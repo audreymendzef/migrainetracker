@@ -9,6 +9,7 @@ import Experience from "Pages/Survey/Experience";
 import FoodWater from "Pages/Survey/FoodWater";
 import Misc from "Pages/Survey/Misc";
 import Logs from "Pages/Logs";
+import Details from "Pages/Details";
 
 const WithNav = () => (
   <>
@@ -88,6 +89,9 @@ function App() {
         <Route index element={<Home />} />
         <Route element={<WithNav />}>
           <Route path="Logs" element={<Logs />} />
+        </Route>
+        <Route element={<WithNav />}>
+          <Route path="Details/:id" element={<Details />} />
         </Route>
         <Route element={<WithNav />}>
           <Route

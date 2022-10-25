@@ -17,11 +17,9 @@ function Logs() {
         <div className="dateAndLink">
           {Array.isArray(parseLogs) &&
             parseLogs.map(({ id, dateOfMigraine }) => (
-              <div className="storeInfo">
-                <h4 className="dateFromStore" key={id}>
-                  {dateOfMigraine}
-                </h4>
-                <a className="detailsLink" href="/Details" key={id}>
+              <div className="storeInfo" key={id}>
+                <h4 className="dateFromStore">{dateOfMigraine}</h4>
+                <a className="detailsLink" href={`/Details/${id}`}>
                   Details
                 </a>
               </div>

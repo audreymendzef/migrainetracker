@@ -22,10 +22,6 @@ function FoodWater({ store, setStore }) {
     }
   };
 
-  const onClick = () => {
-    window.location.assign("/Experience");
-  };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="foodWaterInfo">

@@ -1,44 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import getSymptoms from "SymptomChecker/Symptoms";
+import getPostExperience from "SymptomChecker/PostExperience";
+import getPreExperience from "SymptomChecker/PreExperience";
+import getCircumstances from "SymptomChecker/Circumstances";
 import "./styles.css";
-
-const getSymptoms = (log) => {
-  const symptoms = [];
-  if (log.visionImpairments) {
-    symptoms.push("Vision Impairments");
-  }
-  if (log.sensitivityToSound) {
-    symptoms.push("Sensitivity to Sound");
-  }
-  if (log.dizziness) {
-    symptoms.push("dizziness");
-  }
-  if (log.lightHeadedness) {
-    symptoms.push("Light-Headedness");
-  }
-  if (log.visionAuras) {
-    symptoms.push("Vision Auras");
-  }
-  if (log.throbbingPulsing) {
-    symptoms.push("Throbbing/Pulsing");
-  }
-  if (log.nausea) {
-    symptoms.push("Nausea");
-  }
-  if (log.vomitting) {
-    symptoms.push("Vomitting");
-  }
-  if (log.sensitivityToLight) {
-    symptoms.push("Sensitivity to Light");
-  }
-  if (log.noSymptoms) {
-    symptoms.push("None");
-  }
-  if (log.otherSymptomsBox) {
-    symptoms.push(log.otherSymptoms);
-  }
-  return symptoms;
-};
 
 function Details() {
   const logs = localStorage.getItem("logs");
@@ -51,32 +17,157 @@ function Details() {
   return (
     <div className="container">
       <h1 className="header">Migraine Details</h1>
-      <div className="surveyInfo">
-        <h3>Age: {log.Age}</h3>
-        <h3>Date of Migraine: {log.dateOfMigraine}</h3>
-        <h3>Time of Migraine: {log.timeOfMigraine}</h3>
-        <h3>Location of Migraine: {log.locationOfMigraine}</h3>
-        <h3>Location of Pain: {log.painOrigin}</h3>
-        <h3>Severity of Pain: {log.painSeverity}</h3>
-        <h3>Time of Migraine: {log.timeOfMigraine}</h3>
-        <h3>Migraine Symptoms: {getSymptoms(log).join(", ")} </h3>
-        <h3>Length of Migraine: {log.lengthOfMigraine}</h3>
-        <h3>Medication: {log.medsForMigraine}</h3>
-        <h3>Medication Helpful: {log.didMedsHelp}</h3>
-        <h3>Full Recovery Time: {log.recoveryTime}</h3>
-        <h3>Post-Migraine Symptoms:</h3>
-        <h3>Pre-Migraine Symptoms:</h3>
-        <h3>Day of Migraine Water Intake: {log.dayOfMigraineWater}</h3>
-        <h3>Day of Migraine Alternate Drinks: {log.dayOfMigraineAltDrinks}</h3>
-        <h3>Pre-Migraine Water Intake: {log.preMigraineWater}</h3>
-        <h3>Pre-Migraine Alternate Drinks: {log.preMigraineAltDrinks}</h3>
-        <h3>Day of Migraine Breakfast: {log.breakfast}</h3>
-        <h3>Day of Migraine Lunch: {log.lunch}</h3>
-        <h3>Day of Migraine Dinner: {log.dinner}</h3>
-        <h3>Day of Migraine Snacks/Dessert: {log.snacksAndDessert}</h3>
-        <h3>Date of Next Period: {log.dateOfNextPeriod}</h3>
-        <h3>Extenuating Circumstances: </h3>
-        <h3>Other Relevant Info: {log.otherMiscInfo}</h3>
+      <div className="surveyInfoContainer">
+        <div className="question">
+          <h3>Age:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.Age}</h3>
+        </div>
+        <div className="question">
+          <h3>Date of Migraine:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.dateOfMigraine}</h3>
+        </div>
+        <div className="question">
+          <h3>Time of Migraine:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.timeOfMigraine}</h3>
+        </div>
+        <div className="question">
+          <h3>Location of Migraine:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.locationOfMigraine}</h3>
+        </div>
+        <div className="question">
+          <h3>Location of Pain:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.painOrigin}</h3>
+        </div>
+        <div className="question">
+          <h3>Severity of Pain:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.painSeverity}</h3>
+        </div>
+        <div className="question">
+          <h3>Time of Migraine:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.timeOfMigraine}</h3>
+        </div>
+        <div className="question">
+          <h3>Migraine Symptoms:</h3>
+        </div>
+        <div className="answer">
+          <h3>{getSymptoms(log).join(", ")} </h3>
+        </div>
+        <div className="question">
+          <h3>Length of Migraine:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.lengthOfMigraine}</h3>
+        </div>
+        <div className="question">
+          <h3>Medication:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.medsForMigraine}</h3>
+        </div>
+        <div className="question">
+          <h3>Medication Helpful:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.didMedsHelp}</h3>
+        </div>
+        <div className="question">
+          <h3>Full Recovery Time:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.recoveryTime}</h3>
+        </div>
+        <div className="question">
+          <h3>Post-Migraine Symptoms:</h3>
+        </div>
+        <div className="answer">
+          <h3>{getPostExperience(log).join(", ")}</h3>
+        </div>
+        <div className="question">
+          <h3>Pre-Migraine Symptoms:</h3>
+        </div>
+        <div className="answer">
+          <h3>{getPreExperience(log).join(", ")}</h3>
+        </div>
+        <div className="question">
+          <h3>Day of Migraine Water Intake (oz):</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.dayOfMigraineWater}</h3>
+        </div>
+        <div className="question">
+          <h3>Day of Migraine Alternate Drinks:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.dayOfMigraineAltDrinks}</h3>
+        </div>
+        <div className="question">
+          <h3>Pre-Migraine Water Intake (oz):</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.preMigraineWater}</h3>
+        </div>
+        <div className="question">
+          <h3>Pre-Migraine Alternate Drinks:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.preMigraineAltDrinks}</h3>
+        </div>
+        <div className="question">
+          <h3>Day of Migraine Breakfast:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.breakfast}</h3>
+        </div>
+        <div className="question">
+          <h3>Day of Migraine Lunch:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.lunch}</h3>
+        </div>
+        <div className="question">
+          <h3>Day of Migraine Dinner:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.dinner}</h3>
+        </div>
+        <div className="question">
+          <h3>Day of Migraine Snacks/Dessert:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.snacksAndDessert}</h3>
+        </div>
+        <div className="question">
+          <h3>Date of Next Period:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.dateOfNextPeriod}</h3>
+        </div>
+        <div className="question">
+          <h3>Extenuating Circumstances:</h3>
+        </div>
+        <div className="answer">
+          <h3>{getCircumstances(log).join(", ")}</h3>
+        </div>
+        <div className="question">
+          <h3>Other Relevant Info:</h3>
+        </div>
+        <div className="answer">
+          <h3>{log.otherMiscInfo}</h3>
+        </div>
       </div>
     </div>
   );

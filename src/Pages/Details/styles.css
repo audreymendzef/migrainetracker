@@ -1,0 +1,29 @@
+.header {
+    font-family: "Roboto";
+    color: #282c34;
+    margin: 15px;
+}
+
+.surveyInfoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 15px;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.answer {
+    text-align: center;
+    color: #282c34;
+    font-family: "Roboto";
+}
+
+.question {
+    text-align: center;
+    color: #282c34;
+    font-family: "Roboto";
+}
+

@@ -9,7 +9,7 @@ import {
 import "./styles.css";
 import { useNavigate, Link } from "react-router-dom";
 
-function Misc({ store, setStore }) {
+function Misc({ store }) {
   const {
     register,
     control,
@@ -32,7 +32,7 @@ function Misc({ store, setStore }) {
       const parseLogs = JSON.parse(logs);
       console.log(parseLogs);
 
-      parseLogs.push({ ...store, ...data });
+      parseLogs.push({ ...store, ...data, id: crypto.randomUUID() });
       // set the new logs
       localStorage.setItem("logs", JSON.stringify(parseLogs));
     }

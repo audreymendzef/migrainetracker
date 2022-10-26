@@ -7,11 +7,11 @@ import getCircumstances from "SymptomChecker/Circumstances";
 import "./styles.css";
 
 function Details() {
-  const logs = localStorage.getItem("logs");
-  const parseLogs = JSON.parse(logs);
   const { id } = useParams();
+  const logs = localStorage.getItem("logs");
+  const parsedLogs = JSON.parse(logs);
 
-  const log = parseLogs.find((element) => (element = { id }));
+  const log = parsedLogs.find((element) => element.id === id);
   console.log(log);
 
   return (

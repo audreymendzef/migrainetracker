@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin: 15px;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    color: #282c34;
 }
 
 .buttons {
@@ -10,4 +12,9 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
+}
+
+p {
+    text-align: center;
+    margin: 15px;
 }

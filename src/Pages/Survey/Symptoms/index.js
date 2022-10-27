@@ -45,7 +45,7 @@ function Symptoms({ store, setStore }) {
             fieldState: { error },
           }) => (
             <TextField
-              sx={{ m: 1, witdh: 150 }}
+              sx={{ m: 1, width: 150 }}
               required
               size="small"
               type="text"

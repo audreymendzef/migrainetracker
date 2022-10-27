@@ -104,7 +104,7 @@ function General({ store, setStore }) {
                 <MenuItem value="late afternoon">late afternoon</MenuItem>
                 <MenuItem value="early evening">early evening</MenuItem>
                 <MenuItem value="late evening">late evening</MenuItem>
-                <MenuItem value="other">other</MenuItem>
+                <MenuItem value="middle of night">middle of night</MenuItem>
               </Select>
               <FormHelperText>{error ? error.message : null}</FormHelperText>
             </FormControl>

@@ -44,11 +44,11 @@ function LengthAndMeds({ store, setStore }) {
             fieldState: { error },
           }) => (
             <TextField
-              sx={{ m: 1, witdh: 150 }}
+              sx={{ m: 1, width: 150 }}
               required
               size="small"
-              type="text"
-              label="Length"
+              type="number"
+              label="Length (hrs)"
               variant="outlined"
               value={value}
               onChange={onChange}
@@ -70,7 +70,7 @@ function LengthAndMeds({ store, setStore }) {
             fieldState: { error },
           }) => (
             <TextField
-              sx={{ m: 1, witdh: 150 }}
+              sx={{ m: 1, width: 150 }}
               required
               size="small"
               type="text"
@@ -95,21 +95,28 @@ function LengthAndMeds({ store, setStore }) {
             field: { onChange, value, onBlur },
             fieldState: { error },
           }) => (
-            <TextField
-              sx={{ m: 1, witdh: 150 }}
-              required
-              size="small"
-              type="text"
-              label="Effectiveness"
-              variant="outlined"
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-              error={!!error}
-              helperText={error ? error.message : null}
-            />
+            <FormControl sx={{ m: 1, width: 150 }} error={error} size="small">
+              <InputLabel id="demo-simple-select-label">
+                Effectiveness*
+              </InputLabel>
+              <Select
+                label="Effectiveness"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                error={!!error}
+              >
+                <MenuItem value="" disabled>
+                  Select One
+                </MenuItem>
+                <MenuItem value="yes">yes</MenuItem>
+                <MenuItem value="no">no</MenuItem>
+                <MenuItem value="moderately">moderately</MenuItem>
+              </Select>
+              <FormHelperText>{error ? error.message : null}</FormHelperText>
+            </FormControl>
           )}
-          rules={{ required: "Medication effectiveness is required." }}
+          rules={{ required: "Medication Effectiveness is required." }}
         />
 
         <p>How long did it take to feel 100% recovered?</p>

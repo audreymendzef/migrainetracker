@@ -67,7 +67,7 @@ function Details() {
           <h3>{getSymptoms(log).join(", ")} </h3>
         </div>
         <div className="question">
-          <h3>Length of Migraine:</h3>
+          <h3>Length of Migraine (hrs):</h3>
         </div>
         <div className="answer">
           <h3>{log.lengthOfMigraine}</h3>

@@ -1,7 +1,7 @@
 .header {
-    font-family: "Roboto";
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
     color: #282c34;
-    margin: 15px;
+    margin: 15px 15px 0px 15px;
 }
 
 .surveyInfoContainer {
@@ -18,12 +18,12 @@
 .answer {
     text-align: center;
     color: #282c34;
-    font-family: "Roboto";
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
 }
 
 .question {
     text-align: center;
     color: #282c34;
-    font-family: "Roboto";
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
 }
 

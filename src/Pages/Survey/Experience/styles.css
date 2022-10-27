@@ -3,8 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.postsympt {
-    margin: 0;
+    margin: 15px;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    color: #282c34;
 }

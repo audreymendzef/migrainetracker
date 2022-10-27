@@ -508,7 +508,7 @@ function Experience({ store, setStore }) {
               className="button"
               variant="contained"
               sx={{
-                marginTop: 5,
+                marginTop: 4,
                 marginRight: 1,
                 marginBottom: 2,
                 backgroundColor: "primary",
@@ -524,7 +524,7 @@ function Experience({ store, setStore }) {
             className="button"
             variant="contained"
             sx={{
-              marginTop: 5,
+              marginTop: 4,
               marginLeft: 1,
               marginBottom: 2,
               backgroundColor: "primary",

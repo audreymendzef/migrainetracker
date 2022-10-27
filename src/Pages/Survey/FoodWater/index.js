@@ -1,6 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
 import { TextField, Button } from "@mui/material";
-import React, { useState } from "react";
 import "./styles.css";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -84,10 +83,7 @@ function FoodWater({ store, setStore }) {
           }}
         />
 
-        <p>
-          How much water were you drinking on the days leading up to the
-          migraine?
-        </p>
+        <p>How much water did you drinking on the day before the migraine?</p>
         <Controller
           name="preMigraineWater"
           control={control}
@@ -116,8 +112,8 @@ function FoodWater({ store, setStore }) {
         />
 
         <p>
-          Did you drink any other liquids (e.g. Juice, Alcohol, etc.) on the
-          days leading up to the migraine?
+          Did you drink any other liquids (e.g. Juice, Alcohol, etc.) on the day
+          before the migraine?
         </p>
         <Controller
           name="preMigraineAltDrinks"
